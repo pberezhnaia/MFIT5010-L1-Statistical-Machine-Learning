@@ -154,7 +154,7 @@ eval_gbm<-confusionMatrix(test$sentiment,sent_predict_gbm)
 
 #nn
 nn_fit<-train(sentiment~.,data=train,
-                 method="avNNet",
+                 method="mlp",
                  trControl=trainControl(method="cv",number=5,classProbs=TRUE,verboseIter=TRUE))
 sent_predict_nn<-predict(nn_fit, newdata=test_matched)
 eval_nn<-confusionMatrix(test$sentiment,sent_predict_nn)
